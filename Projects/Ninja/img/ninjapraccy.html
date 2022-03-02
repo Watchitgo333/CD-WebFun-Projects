@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <body>
+            <div id=background>
+                <div id= 'dojo' style='position:relative; top:200px;
+                left:200px; background-image: url("white_bg.jpg");height:600px; width: 500px;'></div>
+                <div id='ninja' style='position:fixed; top:500px;
+                left: 500px; background-image: url("down1.png"); height:86px; width: 59px;'></div>
+                <div id= 'flowers' style='position:fixed; top:200px; left:200px; background-image: url("flowers.png"); height: 1181px; width: 1181px;'></div>
+            </div>
+            <script type="text/javascript">
+            var leftValue = 500, topValue = 500, direction = "top", step = 1;
+                function update() {
+                document.getElementById('ninja').style.top = topValue+"px";
+                document.getElementById('ninja').style.left = leftValue+"px";
+                document.getElementById('ninja').style.backgroundImage= 'url('+direction+''+step+'.png)';
+                if (step == 1){
+                    step = 2;
+                    }
+                else { step = 1;
+                }
+                }
+                document.onkeydown = function(e){
+                    console.log(e);
+                    if(e.keyCode == 38 && topValue > 0) { //UP
+                        topValue = topValue - 10;
+                        direction = "top";
+                    }
+                    else if(e.keyCode == 40 && topValue < 500) {//DOWN
+                        topValue += 10;
+                        direction = "down";
+                    
+                    }
+                    else if(e.keyCode == 37 && leftValue > 0 ) {//LEFT
+                        leftValue -= 10;
+                        direction = "left";
+                    }
+                    else if(e.keyCode == 39 && leftValue < 500) {//RIGHT
+                        leftValue += 10;
+                        direction = "right";
+                    }
+                    update();
+
+                }
+            </script>
+        </body>
+    </head>
+</html>

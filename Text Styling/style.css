@@ -1,0 +1,15 @@
+h1 {
+    background-color: black; color: aqua;
+    font-family: cursive; text-align: left; padding-left: 10px;
+}
+span.myWhite {
+    color: white;
+}
+h2 {
+    text-align: center; font-family: cursive; background-color: rebeccapurple;
+    color: white; font-style: italic; font-weight: lighter;
+}
+h3 {
+    text-align: right; background-color: lightblue; font-family: cursive;
+    padding-right: 10px;
+}

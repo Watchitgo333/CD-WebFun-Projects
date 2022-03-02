@@ -1,0 +1,101 @@
+<html>
+    <head>
+        <title>NinjaManPRACCY</title>
+        <style type="text/css">
+            * { margin: 0px; 
+                padding: 0px;
+            }
+            .row { line-height: 0px;
+            }
+            .wall {
+                background-color: blue; height: 40px; width: 40px; display: inline-block;
+            }
+            .sushi {
+                background-image: url('sushi.png'); background-color: black; height: 40px;
+                width: 40px; display: inline-block; background-size: contain;
+            }
+            .blank {background-color: black; height: 40px; width: 40px; display: inline-block;  
+            }
+            #ninjaMan{
+                background-image: url('ninja.gif'); position: absolute; height: 40px; width: 40px; display: inline-block;
+                background-size: contain; left: 40px; top: 40px; background-color: black;
+            }
+        </style>
+    </head>    
+        <body>
+            <div id = 'world'></div>
+            <div id = 'ninjaMan'></div>
+        </body>
+        <script type="text/javascript">
+            var world = [
+                [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+                [1,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,1],
+                [1,2,1,1,1,0,0,0,0,0,1,1,1,1,1,1,0,1],
+                [1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1],
+                [1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1],
+                [1,2,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,1],
+                [1,2,2,2,1,1,1,1,1,1,1,1,1,1,0,1,1,1],
+                [1,1,1,2,1,1,1,1,1,1,1,1,1,1,0,1,1,1],
+                [1,2,2,2,1,1,1,1,1,1,1,1,1,1,0,1,1,1],
+                [1,2,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1],
+                [1,2,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,1],
+                [1,0,2,2,2,2,2,2,2,2,2,2,2,2,2,2,0,1],
+                [1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1],
+                [1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1],
+                [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+                [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+        ]
+            var worldDict = {
+                0: 'blank',
+                1: 'wall', 
+                2: 'sushi' 
+            }
+            function drawWorld(){
+                output = "";
+                for(var row = 0; row < world.length; row ++) {
+                    output += "<div class = 'row'>"
+                    for(var x = 0; x < world[row].length; x ++) {
+                        output += "<div class = '" +worldDict[world[row][x]] +"'></div>"
+                    }
+                    output += "</div>"
+                }
+                document.getElementById('world').innerHTML = output;
+            }
+            var ninjaMan = {
+                x: 1,
+                y: 1
+            }
+            function move() {
+                document.getElementById('ninjaMan').style.top = ninjaMan.y * 40 + 'px'
+                document.getElementById('ninjaMan').style.left = ninjaMan.x * 40 + 'px'
+                }
+            document.onkeydown = function(e){
+                console.log(e);
+                if (e.keyCode == 38) {
+                    if(world[ninjaMan.y - 1][ninjaMan.x] != 1) {
+                    ninjaMan.y--;
+                    }
+            }
+            if (e.keyCode == 40) {
+                    if(world[ninjaMan.y + 1][ninjaMan.x] != 1) {
+                    ninjaMan.y++;
+                    }
+            }
+            if (e.keyCode == 37) {
+                if(world[ninjaMan.y][ninjaMan.x - 1] != 1) {
+                    ninjaMan.x--;
+                }
+            }
+            if (e.keyCode == 39) {
+                if(world[ninjaMan.y][ninjaMan.x +1] != 1) {
+                    ninjaMan.x++;
+                }
+            }
+            world[ninjaMan.y][ninjaMan.x] = 0;
+            move();
+            drawWorld();
+        }
+            drawWorld();
+            
+        </script>
+</html>

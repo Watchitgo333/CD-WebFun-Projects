@@ -1,0 +1,22 @@
+h1 {
+    background-color: honeydew;
+    color: cornflowerblue; font-size: 100px; font-family:'Trebuchet MS';
+    border: 9px solid bisque; border-radius: 5px;
+    outline: 1px solid black;
+}
+.border1 {
+    background-color: aqua; color: blanchedalmond; font-family: 'Trebuchet MS';
+    outline: 1px solid green;
+}
+input {
+    padding: 5px;
+    border-color: rebeccapurple;
+}
+input[type="text"] {
+    border: none;
+    border-bottom: 2px solid rebeccapurple;
+}
+input[type="submit"] {
+    color: white;
+    background-color: rebeccapurple;
+}

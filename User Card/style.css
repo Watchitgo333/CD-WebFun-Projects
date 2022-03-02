@@ -1,0 +1,47 @@
+.container {
+    width: 600px;
+    height: 300px;
+    border: 2px solid gray;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+}
+
+.row {
+    background-color: rgb(23, 162, 184);
+    width: 600px;
+    height: 80px;
+}
+
+.main {
+    margin-left: 20px;
+    font-family: cursive; 
+}
+
+.user-pic {
+    width: 80px;
+    margin-top: 40px;
+    margin-left: 30px;
+}
+
+.name {
+    margin-top: 40px;
+}
+
+.map-icon {
+    height: 20px;
+    margin-top: -10px;
+    margin-right: 5px;
+}
+.gear {
+    width: 20px;
+}
+
+.about {
+    margin-top: 5px;
+    margin-bottom: -20px;
+}
+
+.gear {
+    margin-top: -30px;
+}
